@@ -1,0 +1,241 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>fmodel-ts</title>
+	<meta name="description" content="Documentation for fmodel-ts">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">fmodel-ts</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>fmodel-ts</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#fmodel---functional-domain-modeling-with-typescript" id="fmodel---functional-domain-modeling-with-typescript" style="color: inherit; text-decoration: none;">
+					<h1><strong>f<code>(</code>model<code>)</code></strong> - Functional Domain Modeling with <code>TypeScript</code></h1>
+				</a>
+				<p><a href="https://github.com/fraktalio/fmodel-ts/actions/workflows/node-test-build.yml"><img src="https://github.com/fraktalio/fmodel-ts/actions/workflows/node-test-build.yml/badge.svg" alt="CI with Node/NPM - Test and Build"></a></p>
+				<p>When you’re developing an information system to automate the activities of the business, you are modeling the business.
+					The abstractions that you design, the behaviors that you implement, and the UI interactions that you build all reflect
+				the business — together, they constitute the model of the domain.</p>
+				<a href="#iorltlibrary-inspirationgt" id="iorltlibrary-inspirationgt" style="color: inherit; text-decoration: none;">
+					<h2><code>IOR&lt;Library, Inspiration&gt;</code></h2>
+				</a>
+				<p>This project can be used as a library, or as an inspiration, or both. It provides just enough tactical Domain-Driven
+				Design patterns, optimised for Event Sourcing and CQRS.</p>
+				<p>The library is fully isolated from the application and infrastructure layers. It represents a pure
+				declaration of the program logic. It is written in <a href="https://www.typescriptlang.org/">TypeScript</a> programming language.</p>
+				<a href="#command-c-state-s-gt-readonly-e" id="command-c-state-s-gt-readonly-e" style="color: inherit; text-decoration: none;">
+					<h2><code>(command: C, state: S) =&gt; readonly E[]</code></h2>
+				</a>
+				<p>On a higher level of abstraction, any information system is responsible for handling the intent (<code>Command</code>) and based on
+				the current <code>State</code>, produce new facts (<code>Events</code>):</p>
+				<ul>
+					<li>given the current <code>State/S</code> <em>on the input</em>,</li>
+					<li>when <code>Command/C</code> is handled <em>on the input</em>,</li>
+					<li>expect <code>list</code> of new <code>Events/E</code> to be published/emitted <em>on the output</em></li>
+				</ul>
+				<a href="#state-s-event-e-gt-s" id="state-s-event-e-gt-s" style="color: inherit; text-decoration: none;">
+					<h2><code>(state: S, event: E) =&gt; S</code></h2>
+				</a>
+				<p>The new state is always evolved out of the current state <code>S</code> and the current event <code>E</code>:</p>
+				<ul>
+					<li>given the current <code>State/S</code> <em>on the input</em>,</li>
+					<li>when <code>Event/E</code> is handled <em>on the input</em>,</li>
+					<li>expect new <code>State/S</code> to be published <em>on the output</em></li>
+				</ul>
+				<a href="#event-sourced-or-state-stored-systems" id="event-sourced-or-state-stored-systems" style="color: inherit; text-decoration: none;">
+					<h2>Event-sourced or State-stored systems</h2>
+				</a>
+				<ul>
+					<li>State-stored systems are traditional systems that are only storing the current State by overwriting the previous State
+					in the storage.</li>
+					<li>Event-sourced systems are storing the events in immutable storage by only appending.</li>
+				</ul>
+				<p><strong>Both types of systems can be designed by using only these two functions and three generic parameters</strong></p>
+				<p><code>Decider</code> is the most important datatype, but it is not the only one. There are others:</p>
+				<p><img src=".assets/onion.png" alt="onion architecture image"></p>
+				<a href="#decider" id="decider" style="color: inherit; text-decoration: none;">
+					<h2>Decider</h2>
+				</a>
+				<p><code>_Decider</code> is a datatype that represents the main decision-making algorithm. It belongs to the Domain layer. It has five
+					generic parameters <code>C</code>, <code>Si</code>, <code>So</code>, <code>Ei</code>, <code>Eo</code> , representing the type of the values that <code>_Decider</code> may contain or use.
+					<code>_Decider</code> can be specialized for any type <code>C</code> or <code>Si</code> or <code>So</code> or <code>Ei</code> or <code>Eo</code> because these types do not affect its
+				behavior. <code>_Decider</code> behaves the same for <code>C</code>=<code>Int</code> or <code>C</code>=<code>YourCustomType</code>, for example.</p>
+				<p><code>_Decider</code> is a pure domain component.</p>
+				<ul>
+					<li><code>C</code> - Command</li>
+					<li><code>Si</code> - input State</li>
+					<li><code>So</code> - output State</li>
+					<li><code>Ei</code> - input Event</li>
+					<li><code>Eo</code> - output Event</li>
+				</ul>
+				<p>We make a difference between input and output types, and we are more general in this case. We can always specialize down
+				to the 3 generic parameters: <code>export class Decider&lt;C, S, E&gt; extends _Decider&lt;C, S, S, E, E&gt; {}</code></p>
+				<pre><code class="language-typescript"><span style="color: #AF00DB">export</span><span style="color: #000000"> </span><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">_Decider</span><span style="color: #000000">&lt;</span><span style="color: #267F99">C</span><span style="color: #000000">, </span><span style="color: #267F99">Si</span><span style="color: #000000">, </span><span style="color: #267F99">So</span><span style="color: #000000">, </span><span style="color: #267F99">Ei</span><span style="color: #000000">, </span><span style="color: #267F99">Eo</span><span style="color: #000000">&gt; {</span>
+<span style="color: #000000">    </span><span style="color: #0000FF">constructor</span><span style="color: #000000">(</span>
+<span style="color: #000000">      </span><span style="color: #0000FF">readonly</span><span style="color: #000000"> </span><span style="color: #795E26">decide</span><span style="color: #000000">: (</span><span style="color: #001080">c</span><span style="color: #000000">: </span><span style="color: #267F99">C</span><span style="color: #000000">, </span><span style="color: #001080">s</span><span style="color: #000000">: </span><span style="color: #267F99">Si</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #0000FF">readonly</span><span style="color: #000000"> </span><span style="color: #267F99">Eo</span><span style="color: #000000">[],</span>
+<span style="color: #000000">      </span><span style="color: #0000FF">readonly</span><span style="color: #000000"> </span><span style="color: #795E26">evolve</span><span style="color: #000000">: (</span><span style="color: #001080">s</span><span style="color: #000000">: </span><span style="color: #267F99">Si</span><span style="color: #000000">, </span><span style="color: #001080">e</span><span style="color: #000000">: </span><span style="color: #267F99">Ei</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #267F99">So</span><span style="color: #000000">,</span>
+<span style="color: #000000">      </span><span style="color: #0000FF">readonly</span><span style="color: #000000"> </span><span style="color: #001080">initialState</span><span style="color: #000000">: </span><span style="color: #267F99">So</span>
+<span style="color: #000000">    ) {}</span>
+<span style="color: #000000">}</span>
+
+<span style="color: #AF00DB">export</span><span style="color: #000000"> </span><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">Decider</span><span style="color: #000000">&lt;</span><span style="color: #267F99">C</span><span style="color: #000000">, </span><span style="color: #267F99">S</span><span style="color: #000000">, </span><span style="color: #267F99">E</span><span style="color: #000000">&gt; </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">_Decider</span><span style="color: #000000">&lt;</span><span style="color: #267F99">C</span><span style="color: #000000">, </span><span style="color: #267F99">S</span><span style="color: #000000">, </span><span style="color: #267F99">S</span><span style="color: #000000">, </span><span style="color: #267F99">E</span><span style="color: #000000">, </span><span style="color: #267F99">E</span><span style="color: #000000">&gt; {}</span>
+</code></pre>
+				<p>Additionally, <code>initialState</code> of the Decider is introduced to gain more control over the initial state of the Decider.</p>
+				<p><img src=".assets/decider.png" alt="decider image"></p>
+				<a href="#view" id="view" style="color: inherit; text-decoration: none;">
+					<h2>View</h2>
+				</a>
+				<p><code>_View</code>  is a datatype that represents the event handling algorithm, responsible for translating the events into
+					denormalized state, which is more adequate for querying. It belongs to the Domain layer. It is usually used to create
+				the view/query side of the CQRS pattern. Obviously, the command side of the CQRS is usually event-sourced aggregate.</p>
+				<p>It has three generic parameters <code>Si</code>, <code>So</code>, <code>E</code>, representing the type of the values that <code>_View</code> may contain or use.
+					<code>_View</code> can be specialized for any type of <code>Si</code>, <code>So</code>, <code>E</code> because these types do not affect its behavior.
+				<code>_View</code> behaves the same for <code>E</code>=<code>Int</code> or <code>E</code>=<code>YourCustomType</code>, for example.</p>
+				<p><code>_View</code> is a pure domain component.</p>
+				<ul>
+					<li><code>Si</code> - input State</li>
+					<li><code>So</code> - output State</li>
+					<li><code>E</code>  - Event</li>
+				</ul>
+				<p>We make a difference between input and output types, and we are more general in this case. We can always specialize down
+				to the 2 generic parameters: <code>class View&lt;S, E&gt; extends _View&lt;S, S, E&gt; {}</code></p>
+				<pre><code class="language-typescript"><span style="color: #AF00DB">export</span><span style="color: #000000"> </span><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">_View</span><span style="color: #000000">&lt;</span><span style="color: #267F99">Si</span><span style="color: #000000">, </span><span style="color: #267F99">So</span><span style="color: #000000">, </span><span style="color: #267F99">E</span><span style="color: #000000">&gt; {</span>
+<span style="color: #000000">    </span><span style="color: #0000FF">constructor</span><span style="color: #000000">(</span>
+<span style="color: #000000">        </span><span style="color: #0000FF">readonly</span><span style="color: #000000"> </span><span style="color: #795E26">evolve</span><span style="color: #000000">: (</span><span style="color: #001080">s</span><span style="color: #000000">: </span><span style="color: #267F99">Si</span><span style="color: #000000">, </span><span style="color: #001080">e</span><span style="color: #000000">: </span><span style="color: #267F99">E</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #267F99">So</span><span style="color: #000000">,</span>
+<span style="color: #000000">        </span><span style="color: #0000FF">readonly</span><span style="color: #000000"> </span><span style="color: #001080">initialState</span><span style="color: #000000">: </span><span style="color: #267F99">So</span>
+<span style="color: #000000">    ) {}</span>
+<span style="color: #000000">}</span>
+
+<span style="color: #AF00DB">export</span><span style="color: #000000"> </span><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">View</span><span style="color: #000000">&lt;</span><span style="color: #267F99">S</span><span style="color: #000000">, </span><span style="color: #267F99">E</span><span style="color: #000000">&gt; </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">_View</span><span style="color: #000000">&lt;</span><span style="color: #267F99">S</span><span style="color: #000000">, </span><span style="color: #267F99">S</span><span style="color: #000000">, </span><span style="color: #267F99">E</span><span style="color: #000000">&gt; {}</span>
+</code></pre>
+				<p><img src=".assets/view.png" alt="view image"></p>
+				<a href="#saga" id="saga" style="color: inherit; text-decoration: none;">
+					<h2>Saga</h2>
+				</a>
+				<p><code>Saga</code> is a datatype that represents the central point of control, deciding what to execute next (<code>A</code>). It is
+					responsible for mapping different events from many aggregates into action results <code>AR</code> that the <code>Saga</code> then can use to
+				calculate the next actions <code>A</code> to be mapped to commands of other aggregates.</p>
+				<p><code>Saga</code> is stateless, it does not maintain the state.</p>
+				<p>It has two generic parameters <code>AR</code>, <code>A</code>, representing the type of the values that <code>Saga</code> may contain or use.
+					<code>Saga</code> can be specialized for any type of <code>AR</code>, <code>A</code> because these types do not affect its behavior.
+				<code>Saga</code> behaves the same for <code>AR</code>=<code>Int</code> or <code>AR</code>=<code>YourCustomType</code>, for example.</p>
+				<p><code>Saga</code> is a pure domain component.</p>
+				<ul>
+					<li><code>AR</code> - Action Result</li>
+					<li><code>A</code>  - Action</li>
+				</ul>
+				<pre><code class="language-typescript"><span style="color: #AF00DB">export</span><span style="color: #000000"> </span><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">Saga</span><span style="color: #000000">&lt;</span><span style="color: #267F99">AR</span><span style="color: #000000">, </span><span style="color: #267F99">A</span><span style="color: #000000">&gt; {</span>
+<span style="color: #000000">    </span><span style="color: #0000FF">constructor</span><span style="color: #000000">(</span><span style="color: #0000FF">readonly</span><span style="color: #000000"> </span><span style="color: #795E26">react</span><span style="color: #000000">: (</span><span style="color: #001080">ar</span><span style="color: #000000">: </span><span style="color: #267F99">AR</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #0000FF">readonly</span><span style="color: #000000"> </span><span style="color: #267F99">A</span><span style="color: #000000">[]) {}</span>
+<span style="color: #000000">}</span>
+</code></pre>
+				<p><img src=".assets/saga.png" alt="saga image"></p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="modules.html">Modules</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/index.html">index</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/lib_application_eventsourcing_aggregate.html">lib/application/eventsourcing-<wbr>aggregate</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/lib_application_materialize_view.html">lib/application/materialize-<wbr>view</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/lib_application_saga_manager.html">lib/application/saga-<wbr>manager</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/lib_application_statestored_aggregate.html">lib/application/statestored-<wbr>aggregate</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/lib_domain_decider.html">lib/domain/decider</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/lib_domain_saga.html">lib/domain/saga</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/lib_domain_view.html">lib/domain/view</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
