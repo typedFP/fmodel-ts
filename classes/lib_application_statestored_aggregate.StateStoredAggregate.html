@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>StateStoredAggregate | fmodel-ts</title>
-	<meta name="description" content="Documentation for fmodel-ts">
+	<title>StateStoredAggregate | @fraktalio/fmodel-ts</title>
+	<meta name="description" content="Documentation for @fraktalio/fmodel-ts">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
 	<script async src="../assets/js/search.js" id="search-script"></script>
@@ -23,7 +23,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">fmodel-ts</a>
+					<a href="../index.html" class="title">@fraktalio/fmodel-ts</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -52,7 +52,7 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../modules.html">fmodel-ts</a>
+					<a href="../modules.html">@fraktalio/fmodel-ts</a>
 				</li>
 				<li>
 					<a href="../modules/lib_application_statestored_aggregate.html">lib/application/statestored-aggregate</a>
@@ -68,17 +68,47 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>State stored aggregate is using/delegating a <code>StateStoredAggregate.decider</code> of type <code>Decider</code>&lt;<code>C</code>, <code>S</code>, <code>E</code>&gt; to handle commands and produce new state.
+							In order to handle the command, aggregate needs to fetch the current state via <code>StateRepository.fetchState</code> function first, and then delegate the command to the <code>StateStoredAggregate.decider</code> which can produce new state as a result.
+						If the <code>StateStoredAggregate.decider</code> is combined out of many deciders via <code>combine</code> function, an optional <code>StateStoredAggregate.saga</code> could be used to react on new events and send new commands to the <code>StateStoredAggregate.decider</code> recursively, in one transaction.</p>
+					</div>
+					<p>New state is then stored via <code>StateRepository.save</code> suspending function.</p>
+					<dl class="tsd-comment-tags">
+						<dt>author</dt>
+						<dd><p>Иван Дугалић / Ivan Dugalic / @idugalic</p>
+						</dd>
+					</dl>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-type-parameters">
 				<h3>Type parameters</h3>
 				<ul class="tsd-type-parameters">
 					<li>
 						<h4>C</h4>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Commands of type <code>C</code> that this aggregate can handle</p>
+							</div>
+						</div>
 					</li>
 					<li>
 						<h4>S</h4>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Aggregate state of type <code>S</code></p>
+							</div>
+						</div>
 					</li>
 					<li>
 						<h4>E</h4>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Events of type <code>E</code> that this aggregate can publish</p>
+							</div>
+						</div>
 					</li>
 				</ul>
 			</section>
@@ -122,7 +152,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/7b85456/src/lib/application/statestored-aggregate.ts#L22">lib/application/statestored-aggregate.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/dd2171b/src/lib/application/statestored-aggregate.ts#L41">lib/application/statestored-aggregate.ts:41</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -141,12 +171,27 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>decider: <a href="lib_domain_decider.Decider.html" class="tsd-signature-type" data-tsd-kind="Class">Decider</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">C</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>A decider component of type <code>Decider</code>&lt;<code>C</code>, <code>S</code>, <code>E</code>&gt;.</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>stateRepository: <a href="../interfaces/lib_application_statestored_aggregate.StateRepository.html" class="tsd-signature-type" data-tsd-kind="Interface">StateRepository</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">C</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Interface for <code>S</code>tate management/persistence</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> saga: <a href="lib_domain_saga.Saga.html" class="tsd-signature-type" data-tsd-kind="Class">Saga</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">C</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>An optional saga component of type <code>Saga</code>&lt;<code>E</code>, <code>C</code>&gt;</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="lib_application_statestored_aggregate.StateStoredAggregate.html" class="tsd-signature-type" data-tsd-kind="Class">StateStoredAggregate</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">C</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -166,7 +211,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/7b85456/src/lib/application/statestored-aggregate.ts#L28">lib/application/statestored-aggregate.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/dd2171b/src/lib/application/statestored-aggregate.ts#L46">lib/application/statestored-aggregate.ts:46</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -192,16 +237,25 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/7b85456/src/lib/application/statestored-aggregate.ts#L42">lib/application/statestored-aggregate.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/dd2171b/src/lib/application/statestored-aggregate.ts#L66">lib/application/statestored-aggregate.ts:66</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Handles the command of type <code>C</code>, and returns new persisted state.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>command: <span class="tsd-signature-type">C</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Command of type <code>C</code> to be handled</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">S</span></h4>
+							<p>state of type <code>S</code></p>
 						</li>
 					</ul>
 				</section>

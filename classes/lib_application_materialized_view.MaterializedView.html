@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>MaterializedView | fmodel-ts</title>
-	<meta name="description" content="Documentation for fmodel-ts">
+	<title>MaterializedView | @fraktalio/fmodel-ts</title>
+	<meta name="description" content="Documentation for @fraktalio/fmodel-ts">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
 	<script async src="../assets/js/search.js" id="search-script"></script>
@@ -23,7 +23,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">fmodel-ts</a>
+					<a href="../index.html" class="title">@fraktalio/fmodel-ts</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -52,7 +52,7 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../modules.html">fmodel-ts</a>
+					<a href="../modules.html">@fraktalio/fmodel-ts</a>
 				</li>
 				<li>
 					<a href="../modules/lib_application_materialized_view.html">lib/application/materialized-view</a>
@@ -75,12 +75,6 @@
 						Essentially, it represents the query/view side of the CQRS pattern.</p>
 					</div>
 					<dl class="tsd-comment-tags">
-						<dt>property</dt>
-						<dd><p>view A view component of type <code>View</code>&lt;<code>S</code>, <code>E</code>&gt;</p>
-						</dd>
-						<dt>property</dt>
-						<dd><p>viewStateRepository Interface for <code>S</code>tate management/persistence</p>
-						</dd>
 						<dt>author</dt>
 						<dd><p>Иван Дугалић / Ivan Dugalic / @idugalic</p>
 						</dd>
@@ -147,7 +141,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/7b85456/src/lib/application/materialized-view.ts#L33">lib/application/materialized-view.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/dd2171b/src/lib/application/materialized-view.ts#L35">lib/application/materialized-view.ts:35</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -163,9 +157,19 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>view: <a href="lib_domain_view.View.html" class="tsd-signature-type" data-tsd-kind="Class">View</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>A view component of type <code>View</code>&lt;<code>S</code>, <code>E</code>&gt;</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>viewStateRepository: <a href="../interfaces/lib_application_materialized_view.ViewStateRepository.html" class="tsd-signature-type" data-tsd-kind="Interface">ViewStateRepository</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Interface for <code>S</code>tate management/persistence</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="lib_application_materialized_view.MaterializedView.html" class="tsd-signature-type" data-tsd-kind="Class">MaterializedView</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -185,12 +189,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/7b85456/src/lib/application/materialized-view.ts#L44">lib/application/materialized-view.ts:44</a></li>
+									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/dd2171b/src/lib/application/materialized-view.ts#L46">lib/application/materialized-view.ts:46</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Handles the event of type <code>E</code></p>
+									<p>Handles the event of type <code>E</code>, and returns new persisted state of type <code>S</code></p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>

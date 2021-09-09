@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Decider | fmodel-ts</title>
-	<meta name="description" content="Documentation for fmodel-ts">
+	<title>Decider | @fraktalio/fmodel-ts</title>
+	<meta name="description" content="Documentation for @fraktalio/fmodel-ts">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
 	<script async src="../assets/js/search.js" id="search-script"></script>
@@ -23,7 +23,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">fmodel-ts</a>
+					<a href="../index.html" class="title">@fraktalio/fmodel-ts</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -52,7 +52,7 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../modules.html">fmodel-ts</a>
+					<a href="../modules.html">@fraktalio/fmodel-ts</a>
 				</li>
 				<li>
 					<a href="../modules/lib_domain_decider.html">lib/domain/decider</a>
@@ -78,17 +78,41 @@
 					</div>
 					<p><code>Decider</code> is a pure domain component.</p>
 					<dl class="tsd-comment-tags">
-						<dt>property</dt>
-						<dd><p>decide - A function/lambda that takes command of type <code>C</code> and input state of type <code>Si</code> as parameters, and returns/emits the list of output events <code>Eo[]</code>&gt;</p>
+						<dt>param</dt>
+						<dd><p>A function/lambda that takes command of type <code>C</code> and input state of type <code>Si</code> as parameters, and returns/emits the list of output events <code>Eo[]</code>&gt;</p>
 						</dd>
-						<dt>property</dt>
-						<dd><p>evolve - A function/lambda that takes input state of type <code>Si</code> and input event of type <code>Ei</code> as parameters, and returns the output/new state <code>So</code></p>
+						<dt>param</dt>
+						<dd><p>A function/lambda that takes input state of type <code>Si</code> and input event of type <code>Ei</code> as parameters, and returns the output/new state <code>So</code></p>
 						</dd>
-						<dt>property</dt>
-						<dd><p>initialState - A starting point / An initial state of type <code>So</code></p>
+						<dt>param</dt>
+						<dd><p>A starting point / An initial state of type <code>So</code></p>
 						</dd>
 						<dt>author</dt>
 						<dd><p>Иван Дугалић / Ivan Dugalic / @idugalic</p>
+						</dd>
+						<dt>example</dt>
+						<dd><pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">decider</span><span style="color: #000000">: </span><span style="color: #267F99">Decider</span><span style="color: #000000">&lt;</span><span style="color: #267F99">OddNumberCmd</span><span style="color: #000000">, </span><span style="color: #267F99">number</span><span style="color: #000000">, </span><span style="color: #267F99">OddNumberEvt</span><span style="color: #000000">&gt; = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Decider</span><span style="color: #000000">&lt;</span><span style="color: #267F99">OddNumberCmd</span><span style="color: #000000">, </span><span style="color: #267F99">number</span><span style="color: #000000">, </span><span style="color: #267F99">OddNumberEvt</span><span style="color: #000000">&gt;(</span>
+<span style="color: #000000">(</span><span style="color: #001080">c</span><span style="color: #000000">, </span><span style="color: #001080">_</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">c</span><span style="color: #000000"> </span><span style="color: #0000FF">instanceof</span><span style="color: #000000"> </span><span style="color: #267F99">AddOddNumberCmd</span><span style="color: #000000">) {</span>
+<span style="color: #000000">     </span><span style="color: #AF00DB">return</span><span style="color: #000000"> [</span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">OddNumberAddedEvt</span><span style="color: #000000">(</span><span style="color: #001080">c</span><span style="color: #000000">.</span><span style="color: #001080">value</span><span style="color: #000000">)];</span>
+<span style="color: #000000">   } </span><span style="color: #AF00DB">else</span><span style="color: #000000"> </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">c</span><span style="color: #000000"> </span><span style="color: #0000FF">instanceof</span><span style="color: #000000"> </span><span style="color: #267F99">MultiplyOddNumberCmd</span><span style="color: #000000">) {</span>
+<span style="color: #000000">     </span><span style="color: #AF00DB">return</span><span style="color: #000000"> [</span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">OddNumberMultiplied</span><span style="color: #000000">(</span><span style="color: #001080">c</span><span style="color: #000000">.</span><span style="color: #001080">value</span><span style="color: #000000">)];</span>
+<span style="color: #000000">   } </span><span style="color: #AF00DB">else</span><span style="color: #000000"> {</span>
+<span style="color: #000000">     </span><span style="color: #AF00DB">return</span><span style="color: #000000"> [];</span>
+<span style="color: #000000">   }</span>
+<span style="color: #000000"> },</span>
+<span style="color: #000000">(</span><span style="color: #001080">s</span><span style="color: #000000">, </span><span style="color: #001080">e</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">   </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">e</span><span style="color: #000000"> </span><span style="color: #0000FF">instanceof</span><span style="color: #000000"> </span><span style="color: #267F99">OddNumberAddedEvt</span><span style="color: #000000">) {</span>
+<span style="color: #000000">     </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #001080">s</span><span style="color: #000000"> + </span><span style="color: #001080">e</span><span style="color: #000000">.</span><span style="color: #001080">value</span><span style="color: #000000">;</span>
+<span style="color: #000000">   } </span><span style="color: #AF00DB">else</span><span style="color: #000000"> </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">e</span><span style="color: #000000"> </span><span style="color: #0000FF">instanceof</span><span style="color: #000000"> </span><span style="color: #267F99">OddNumberMultiplied</span><span style="color: #000000">) {</span>
+<span style="color: #000000">     </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #001080">s</span><span style="color: #000000"> * </span><span style="color: #001080">e</span><span style="color: #000000">.</span><span style="color: #001080">value</span><span style="color: #000000">;</span>
+<span style="color: #000000">   } </span><span style="color: #AF00DB">else</span><span style="color: #000000"> {</span>
+<span style="color: #000000">     </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #001080">s</span><span style="color: #000000">;</span>
+<span style="color: #000000">   }</span>
+<span style="color: #000000"> },</span>
+<span style="color: #098658">0</span>
+<span style="color: #000000">);</span>
+</code></pre>
 						</dd>
 					</dl>
 				</div>
@@ -100,7 +124,7 @@
 						<h4>C</h4>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>Command type</p>
+								<p>comment for type <code>T</code></p>
 							</div>
 						</div>
 					</li>
@@ -184,7 +208,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="lib_domain_decider._Decider.html">_Decider</a>.<a href="lib_domain_decider._Decider.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/7b85456/src/lib/domain/decider.ts#L39">lib/domain/decider.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/dd2171b/src/lib/domain/decider.ts#L40">lib/domain/decider.ts:40</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -203,6 +227,9 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>decide: <span class="tsd-signature-symbol">(</span>c<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">C</span>, s<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-symbol">readonly </span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A function/lambda that takes command of type <code>C</code> and input state of type <code>Si</code> as parameters, and returns/emits the list of output events <code>Eo[]</code>&gt;</p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-signature">
 											<ul class="tsd-signatures tsd-kind-type-literal">
@@ -227,6 +254,9 @@
 								</li>
 								<li>
 									<h5>evolve: <span class="tsd-signature-symbol">(</span>s<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span>, e<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">S</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A function/lambda that takes input state of type <code>Si</code> and input event of type <code>Ei</code> as parameters, and returns the output/new state <code>So</code></p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-signature">
 											<ul class="tsd-signatures tsd-kind-type-literal">
@@ -251,6 +281,9 @@
 								</li>
 								<li>
 									<h5>initialState: <span class="tsd-signature-type">S</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A starting point / An initial state of type <code>So</code></p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="lib_domain_decider.Decider.html" class="tsd-signature-type" data-tsd-kind="Class">Decider</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">C</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -346,7 +379,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="lib_domain_decider._Decider.html">_Decider</a>.<a href="lib_domain_decider._Decider.html#applyOnState">applyOnState</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/7b85456/src/lib/domain/decider.ts#L115">lib/domain/decider.ts:115</a></li>
+									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/dd2171b/src/lib/domain/decider.ts#L134">lib/domain/decider.ts:134</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -358,6 +391,9 @@
 							<ul class="tsd-type-parameters">
 								<li>
 									<h4>Son</h4>
+									<div class="tsd-comment tsd-typography">
+										<p>New output State</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -381,7 +417,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="lib_domain_decider._Decider.html">_Decider</a>.<a href="lib_domain_decider._Decider.html#combine">combine</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/7b85456/src/lib/domain/decider.ts#L137">lib/domain/decider.ts:137</a></li>
+									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/dd2171b/src/lib/domain/decider.ts#L158">lib/domain/decider.ts:158</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -428,7 +464,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="lib_domain_decider._Decider.html">_Decider</a>.<a href="lib_domain_decider._Decider.html#dimapOnEvent">dimapOnEvent</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/7b85456/src/lib/domain/decider.ts#L59">lib/domain/decider.ts:59</a></li>
+									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/dd2171b/src/lib/domain/decider.ts#L65">lib/domain/decider.ts:65</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -440,9 +476,15 @@
 							<ul class="tsd-type-parameters">
 								<li>
 									<h4>Ein</h4>
+									<div class="tsd-comment tsd-typography">
+										<p>New input Event</p>
+									</div>
 								</li>
 								<li>
 									<h4>Eon</h4>
+									<div class="tsd-comment tsd-typography">
+										<p>New output Event</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -505,7 +547,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="lib_domain_decider._Decider.html">_Decider</a>.<a href="lib_domain_decider._Decider.html#dimapOnState">dimapOnState</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/7b85456/src/lib/domain/decider.ts#L87">lib/domain/decider.ts:87</a></li>
+									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/dd2171b/src/lib/domain/decider.ts#L100">lib/domain/decider.ts:100</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -517,9 +559,15 @@
 							<ul class="tsd-type-parameters">
 								<li>
 									<h4>Sin</h4>
+									<div class="tsd-comment tsd-typography">
+										<p>New input State</p>
+									</div>
 								</li>
 								<li>
 									<h4>Son</h4>
+									<div class="tsd-comment tsd-typography">
+										<p>New output State</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -582,7 +630,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="lib_domain_decider._Decider.html">_Decider</a>.<a href="lib_domain_decider._Decider.html#mapLeftOnCommand">mapLeftOnCommand</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/7b85456/src/lib/domain/decider.ts#L48">lib/domain/decider.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/dd2171b/src/lib/domain/decider.ts#L51">lib/domain/decider.ts:51</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -594,6 +642,9 @@
 							<ul class="tsd-type-parameters">
 								<li>
 									<h4>Cn</h4>
+									<div class="tsd-comment tsd-typography">
+										<p>New Command</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -635,7 +686,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="lib_domain_decider._Decider.html">_Decider</a>.<a href="lib_domain_decider._Decider.html#mapLeftOnEvent">mapLeftOnEvent</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/7b85456/src/lib/domain/decider.ts#L73">lib/domain/decider.ts:73</a></li>
+									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/dd2171b/src/lib/domain/decider.ts#L81">lib/domain/decider.ts:81</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -647,6 +698,9 @@
 							<ul class="tsd-type-parameters">
 								<li>
 									<h4>Ein</h4>
+									<div class="tsd-comment tsd-typography">
+										<p>New input Event</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -688,7 +742,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="lib_domain_decider._Decider.html">_Decider</a>.<a href="lib_domain_decider._Decider.html#mapLeftOnState">mapLeftOnState</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/7b85456/src/lib/domain/decider.ts#L101">lib/domain/decider.ts:101</a></li>
+									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/dd2171b/src/lib/domain/decider.ts#L116">lib/domain/decider.ts:116</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -700,6 +754,9 @@
 							<ul class="tsd-type-parameters">
 								<li>
 									<h4>Sin</h4>
+									<div class="tsd-comment tsd-typography">
+										<p>New input State</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -741,7 +798,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="lib_domain_decider._Decider.html">_Decider</a>.<a href="lib_domain_decider._Decider.html#mapOnEvent">mapOnEvent</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/7b85456/src/lib/domain/decider.ts#L80">lib/domain/decider.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/dd2171b/src/lib/domain/decider.ts#L90">lib/domain/decider.ts:90</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -753,6 +810,9 @@
 							<ul class="tsd-type-parameters">
 								<li>
 									<h4>Eon</h4>
+									<div class="tsd-comment tsd-typography">
+										<p>New output Event</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -794,7 +854,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="lib_domain_decider._Decider.html">_Decider</a>.<a href="lib_domain_decider._Decider.html#mapOnState">mapOnState</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/7b85456/src/lib/domain/decider.ts#L108">lib/domain/decider.ts:108</a></li>
+									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/dd2171b/src/lib/domain/decider.ts#L125">lib/domain/decider.ts:125</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -806,6 +866,9 @@
 							<ul class="tsd-type-parameters">
 								<li>
 									<h4>Son</h4>
+									<div class="tsd-comment tsd-typography">
+										<p>New output State</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -847,7 +910,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="lib_domain_decider._Decider.html">_Decider</a>.<a href="lib_domain_decider._Decider.html#productOnState">productOnState</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/7b85456/src/lib/domain/decider.ts#L128">lib/domain/decider.ts:128</a></li>
+									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/dd2171b/src/lib/domain/decider.ts#L149">lib/domain/decider.ts:149</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -859,6 +922,9 @@
 							<ul class="tsd-type-parameters">
 								<li>
 									<h4>Son</h4>
+									<div class="tsd-comment tsd-typography">
+										<p>New output State</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>

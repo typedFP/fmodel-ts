@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>EventSourcingAggregate | fmodel-ts</title>
-	<meta name="description" content="Documentation for fmodel-ts">
+	<title>EventSourcingAggregate | @fraktalio/fmodel-ts</title>
+	<meta name="description" content="Documentation for @fraktalio/fmodel-ts">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
 	<script async src="../assets/js/search.js" id="search-script"></script>
@@ -23,7 +23,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">fmodel-ts</a>
+					<a href="../index.html" class="title">@fraktalio/fmodel-ts</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -52,7 +52,7 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../modules.html">fmodel-ts</a>
+					<a href="../modules.html">@fraktalio/fmodel-ts</a>
 				</li>
 				<li>
 					<a href="../modules/lib_application_eventsourcing_aggregate.html">lib/application/eventsourcing-aggregate</a>
@@ -77,15 +77,6 @@
 					<p>If the <code>EventSourcingAggregate.decider</code> is combined out of many deciders via <code>combine</code> function, an optional <code>EventSourcingAggregate.saga</code> could be used to react on new events and send new commands to the <code>EventSourcingAggregate.decider</code> recursively, in one transaction.</p>
 					<p>Produced events are then stored via <code>EventRepository.save</code> function.</p>
 					<dl class="tsd-comment-tags">
-						<dt>property</dt>
-						<dd><p>decider - A decider component of type <code>Decider</code>&lt;<code>C</code>, <code>S</code>, <code>E</code>&gt;.</p>
-						</dd>
-						<dt>property</dt>
-						<dd><p>eventRepository - Interface for <code>E</code>vent management/persistence</p>
-						</dd>
-						<dt>property</dt>
-						<dd><p>saga - An optional saga component of type <code>Saga</code>&lt;<code>E</code>, <code>C</code>&gt;</p>
-						</dd>
 						<dt>author</dt>
 						<dd><p>Иван Дугалић / Ivan Dugalic / @idugalic</p>
 						</dd>
@@ -161,7 +152,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/7b85456/src/lib/application/eventsourcing-aggregate.ts#L40">lib/application/eventsourcing-aggregate.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/dd2171b/src/lib/application/eventsourcing-aggregate.ts#L43">lib/application/eventsourcing-aggregate.ts:43</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -180,12 +171,27 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>decider: <a href="lib_domain_decider.Decider.html" class="tsd-signature-type" data-tsd-kind="Class">Decider</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">C</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>A decider component of type <code>Decider</code>&lt;<code>C</code>, <code>S</code>, <code>E</code>&gt;.</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>eventRepository: <a href="../interfaces/lib_application_eventsourcing_aggregate.EventRepository.html" class="tsd-signature-type" data-tsd-kind="Interface">EventRepository</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">C</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Interface for <code>E</code>vent management/persistence</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> saga: <a href="lib_domain_saga.Saga.html" class="tsd-signature-type" data-tsd-kind="Class">Saga</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">C</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>An optional saga component of type <code>Saga</code>&lt;<code>E</code>, <code>C</code>&gt;</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="lib_application_eventsourcing_aggregate.EventSourcingAggregate.html" class="tsd-signature-type" data-tsd-kind="Class">EventSourcingAggregate</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">C</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -205,7 +211,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/7b85456/src/lib/application/eventsourcing-aggregate.ts#L46">lib/application/eventsourcing-aggregate.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/dd2171b/src/lib/application/eventsourcing-aggregate.ts#L49">lib/application/eventsourcing-aggregate.ts:49</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -231,16 +237,25 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/7b85456/src/lib/application/eventsourcing-aggregate.ts#L68">lib/application/eventsourcing-aggregate.ts:68</a></li>
+									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/dd2171b/src/lib/application/eventsourcing-aggregate.ts#L76">lib/application/eventsourcing-aggregate.ts:76</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Handles the command of type <code>C</code>, and returns new persisted events.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>command: <span class="tsd-signature-type">C</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Command of type <code>C</code></p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">readonly </span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">[]</span></h4>
+							<p>list of persisted events ot type <code>E</code></p>
 						</li>
 					</ul>
 				</section>

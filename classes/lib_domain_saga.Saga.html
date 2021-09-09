@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Saga | fmodel-ts</title>
-	<meta name="description" content="Documentation for fmodel-ts">
+	<title>Saga | @fraktalio/fmodel-ts</title>
+	<meta name="description" content="Documentation for @fraktalio/fmodel-ts">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
 	<script async src="../assets/js/search.js" id="search-script"></script>
@@ -23,7 +23,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">fmodel-ts</a>
+					<a href="../index.html" class="title">@fraktalio/fmodel-ts</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -52,7 +52,7 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../modules.html">fmodel-ts</a>
+					<a href="../modules.html">@fraktalio/fmodel-ts</a>
 				</li>
 				<li>
 					<a href="../modules/lib_domain_saga.html">lib/domain/saga</a>
@@ -75,8 +75,18 @@
 						It is responsible for mapping different events from aggregates into action results <code>AR</code> that the <code>Saga</code> then can use to calculate the next actions <code>A</code> to be mapped to command of other aggregates.</p>
 					</div>
 					<dl class="tsd-comment-tags">
-						<dt>property</dt>
-						<dd><p>react - A function/lambda that takes input state of type <code>AR</code>, and returns the list of actions <code>A[]</code>&gt;.</p>
+						<dt>example</dt>
+						<dd><pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">saga</span><span style="color: #000000">: </span><span style="color: #267F99">Saga</span><span style="color: #000000">&lt;</span><span style="color: #267F99">OddNumberEvt</span><span style="color: #000000">, </span><span style="color: #267F99">EvenNumberCmd</span><span style="color: #000000">&gt; = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Saga</span><span style="color: #000000">&lt;</span><span style="color: #267F99">OddNumberEvt</span><span style="color: #000000">, </span><span style="color: #267F99">EvenNumberCmd</span><span style="color: #000000">&gt;(</span>
+<span style="color: #000000">(</span><span style="color: #001080">ar</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">ar</span><span style="color: #000000"> </span><span style="color: #0000FF">instanceof</span><span style="color: #000000"> </span><span style="color: #267F99">OddNumberAddedEvt</span><span style="color: #000000">) {</span>
+<span style="color: #000000">     </span><span style="color: #AF00DB">return</span><span style="color: #000000"> [</span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">AddEvenNumberCmd</span><span style="color: #000000">(</span><span style="color: #001080">ar</span><span style="color: #000000">.</span><span style="color: #001080">value</span><span style="color: #000000"> + </span><span style="color: #098658">1</span><span style="color: #000000">)];</span>
+<span style="color: #000000">   } </span><span style="color: #AF00DB">else</span><span style="color: #000000"> </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">ar</span><span style="color: #000000"> </span><span style="color: #0000FF">instanceof</span><span style="color: #000000"> </span><span style="color: #267F99">OddNumberMultipliedEvt</span><span style="color: #000000">) {</span>
+<span style="color: #000000">     </span><span style="color: #AF00DB">return</span><span style="color: #000000"> [</span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">MultiplyEvenNumberCmd</span><span style="color: #000000">(</span><span style="color: #001080">ar</span><span style="color: #000000">.</span><span style="color: #001080">value</span><span style="color: #000000"> + </span><span style="color: #098658">1</span><span style="color: #000000">)];</span>
+<span style="color: #000000">   } </span><span style="color: #AF00DB">else</span><span style="color: #000000"> {</span>
+<span style="color: #000000">     </span><span style="color: #AF00DB">return</span><span style="color: #000000"> [];</span>
+<span style="color: #000000">   }</span>
+<span style="color: #000000">});</span>
+</code></pre>
 						</dd>
 						<dt>author</dt>
 						<dd><p>Иван Дугалић / Ivan Dugalic / @idugalic</p>
@@ -152,7 +162,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/7b85456/src/lib/domain/saga.ts#L30">lib/domain/saga.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/dd2171b/src/lib/domain/saga.ts#L45">lib/domain/saga.ts:45</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -168,6 +178,11 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>react: <span class="tsd-signature-symbol">(</span>ar<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">AR</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-symbol">readonly </span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>A function/lambda that takes input state of type <code>AR</code>, and returns the list of actions <code>A[]</code>&gt;.</p>
+										</div>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-signature">
 											<ul class="tsd-signatures tsd-kind-type-literal">
@@ -236,9 +251,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/7b85456/src/lib/domain/saga.ts#L46">lib/domain/saga.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/dd2171b/src/lib/domain/saga.ts#L70">lib/domain/saga.ts:70</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Combines two choreography sagas into one orchestrating Saga</p>
+								</div>
+							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
@@ -252,6 +272,9 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>y: <a href="lib_domain_saga.Saga.html" class="tsd-signature-type" data-tsd-kind="Class">Saga</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">AR2</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">A2</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>second Saga</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="lib_domain_saga.Saga.html" class="tsd-signature-type" data-tsd-kind="Class">Saga</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">AR</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">AR2</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">A2</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -268,7 +291,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/7b85456/src/lib/domain/saga.ts#L35">lib/domain/saga.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/dd2171b/src/lib/domain/saga.ts#L52">lib/domain/saga.ts:52</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -280,6 +303,9 @@
 							<ul class="tsd-type-parameters">
 								<li>
 									<h4>ARn</h4>
+									<div class="tsd-comment tsd-typography">
+										<p>New Action Result</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -320,7 +346,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/7b85456/src/lib/domain/saga.ts#L42">lib/domain/saga.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/dd2171b/src/lib/domain/saga.ts#L61">lib/domain/saga.ts:61</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -332,6 +358,9 @@
 							<ul class="tsd-type-parameters">
 								<li>
 									<h4>An</h4>
+									<div class="tsd-comment tsd-typography">
+										<p>New Action</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>

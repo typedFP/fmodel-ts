@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>View | fmodel-ts</title>
-	<meta name="description" content="Documentation for fmodel-ts">
+	<title>View | @fraktalio/fmodel-ts</title>
+	<meta name="description" content="Documentation for @fraktalio/fmodel-ts">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
 	<script async src="../assets/js/search.js" id="search-script"></script>
@@ -23,7 +23,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">fmodel-ts</a>
+					<a href="../index.html" class="title">@fraktalio/fmodel-ts</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -52,7 +52,7 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../modules.html">fmodel-ts</a>
+					<a href="../modules.html">@fraktalio/fmodel-ts</a>
 				</li>
 				<li>
 					<a href="../modules/lib_domain_view.html">lib/domain/view</a>
@@ -76,15 +76,21 @@
 						which is more adequate for querying.</p>
 					</div>
 					<p>This is a specialized version of the <code>_View</code> with <code>Si=So=S</code></p>
-					<a href="#example-es-module" id="example-es-module" style="color: inherit; text-decoration: none;">
-						<h3>Example (es module)</h3>
+					<a href="#example" id="example" style="color: inherit; text-decoration: none;">
+						<h3>Example</h3>
 					</a>
-					<pre><code class="language-js"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">View</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;fmodel-ts&#039;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">view</span><span style="color: #000000">: </span><span style="color: #267F99">View</span><span style="color: #000000">&lt;</span><span style="color: #267F99">number</span><span style="color: #000000">, </span><span style="color: #267F99">number</span><span style="color: #000000">&gt; = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">View</span><span style="color: #000000">&lt;</span><span style="color: #267F99">number</span><span style="color: #000000">, </span><span style="color: #267F99">number</span><span style="color: #000000">&gt;((</span><span style="color: #001080">s</span><span style="color: #000000">, </span><span style="color: #001080">e</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000"> </span><span style="color: #008000">// pattern matching</span>
-<span style="color: #000000"> </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #795E26">isNumber</span><span style="color: #000000">(</span><span style="color: #001080">e</span><span style="color: #000000">)) { </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #001080">s</span><span style="color: #000000"> + </span><span style="color: #001080">e</span><span style="color: #000000">; }</span>
-<span style="color: #000000"> </span><span style="color: #AF00DB">else</span><span style="color: #000000"> { </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #001080">s</span><span style="color: #000000">; }</span>
-<span style="color: #000000">}, </span><span style="color: #098658">0</span><span style="color: #000000">);</span>
+					<pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">view</span><span style="color: #000000">: </span><span style="color: #267F99">View</span><span style="color: #000000">&lt;</span><span style="color: #267F99">number</span><span style="color: #000000">, </span><span style="color: #267F99">OddNumberEvt</span><span style="color: #000000">&gt; = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">View</span><span style="color: #000000">&lt;</span><span style="color: #267F99">number</span><span style="color: #000000">, </span><span style="color: #267F99">OddNumberEvt</span><span style="color: #000000">&gt;(</span>
+<span style="color: #000000">(</span><span style="color: #001080">s</span><span style="color: #000000">, </span><span style="color: #001080">e</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">   </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">e</span><span style="color: #000000"> </span><span style="color: #0000FF">instanceof</span><span style="color: #000000"> </span><span style="color: #267F99">OddNumberAddedEvt</span><span style="color: #000000">) {</span>
+<span style="color: #000000">     </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #001080">s</span><span style="color: #000000"> + </span><span style="color: #001080">e</span><span style="color: #000000">.</span><span style="color: #001080">value</span><span style="color: #000000">;</span>
+<span style="color: #000000">   } </span><span style="color: #AF00DB">else</span><span style="color: #000000"> </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">e</span><span style="color: #000000"> </span><span style="color: #0000FF">instanceof</span><span style="color: #000000"> </span><span style="color: #267F99">OddNumberMultiplied</span><span style="color: #000000">) {</span>
+<span style="color: #000000">     </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #001080">s</span><span style="color: #000000"> * </span><span style="color: #001080">e</span><span style="color: #000000">.</span><span style="color: #001080">value</span><span style="color: #000000">;</span>
+<span style="color: #000000">   } </span><span style="color: #AF00DB">else</span><span style="color: #000000"> {</span>
+<span style="color: #000000">     </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #001080">s</span><span style="color: #000000">;</span>
+<span style="color: #000000">   }</span>
+<span style="color: #000000"> },</span>
+<span style="color: #098658">0</span>
+<span style="color: #000000">);</span>
 </code></pre>
 					<dl class="tsd-comment-tags">
 						<dt>author</dt>
@@ -172,7 +178,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="lib_domain_view._View.html">_View</a>.<a href="lib_domain_view._View.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/7b85456/src/lib/domain/view.ts#L35">lib/domain/view.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/dd2171b/src/lib/domain/view.ts#L38">lib/domain/view.ts:38</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -188,6 +194,9 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>evolve: <span class="tsd-signature-symbol">(</span>s<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span>, e<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">S</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A function/lambda that takes input state of type <code>Si</code> and input event of type <code>Ei</code> as parameters, and returns the output/new state <code>So</code></p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-signature">
 											<ul class="tsd-signatures tsd-kind-type-literal">
@@ -212,6 +221,9 @@
 								</li>
 								<li>
 									<h5>initialState: <span class="tsd-signature-type">S</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A starting point / An initial state of type <code>So</code></p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="lib_domain_view.View.html" class="tsd-signature-type" data-tsd-kind="Class">View</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -275,7 +287,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="lib_domain_view._View.html">_View</a>.<a href="lib_domain_view._View.html#applyOnState">applyOnState</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/7b85456/src/lib/domain/view.ts#L83">lib/domain/view.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/dd2171b/src/lib/domain/view.ts#L94">lib/domain/view.ts:94</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -287,6 +299,9 @@
 							<ul class="tsd-type-parameters">
 								<li>
 									<h4>Son</h4>
+									<div class="tsd-comment tsd-typography">
+										<p>New output State</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -310,7 +325,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="lib_domain_view._View.html">_View</a>.<a href="lib_domain_view._View.html#combine">combine</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/7b85456/src/lib/domain/view.ts#L102">lib/domain/view.ts:102</a></li>
+									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/dd2171b/src/lib/domain/view.ts#L114">lib/domain/view.ts:114</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -351,7 +366,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="lib_domain_view._View.html">_View</a>.<a href="lib_domain_view._View.html#dimapOnState">dimapOnState</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/7b85456/src/lib/domain/view.ts#L53">lib/domain/view.ts:53</a></li>
+									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/dd2171b/src/lib/domain/view.ts#L61">lib/domain/view.ts:61</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -363,9 +378,15 @@
 							<ul class="tsd-type-parameters">
 								<li>
 									<h4>Sin</h4>
+									<div class="tsd-comment tsd-typography">
+										<p>New input State</p>
+									</div>
 								</li>
 								<li>
 									<h4>Son</h4>
+									<div class="tsd-comment tsd-typography">
+										<p>New output State</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -428,7 +449,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="lib_domain_view._View.html">_View</a>.<a href="lib_domain_view._View.html#mapLeftOnEvent">mapLeftOnEvent</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/7b85456/src/lib/domain/view.ts#L43">lib/domain/view.ts:43</a></li>
+									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/dd2171b/src/lib/domain/view.ts#L48">lib/domain/view.ts:48</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -440,6 +461,9 @@
 							<ul class="tsd-type-parameters">
 								<li>
 									<h4>En</h4>
+									<div class="tsd-comment tsd-typography">
+										<p>New Event</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -481,7 +505,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="lib_domain_view._View.html">_View</a>.<a href="lib_domain_view._View.html#mapLeftOnState">mapLeftOnState</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/7b85456/src/lib/domain/view.ts#L67">lib/domain/view.ts:67</a></li>
+									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/dd2171b/src/lib/domain/view.ts#L76">lib/domain/view.ts:76</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -493,6 +517,9 @@
 							<ul class="tsd-type-parameters">
 								<li>
 									<h4>Sin</h4>
+									<div class="tsd-comment tsd-typography">
+										<p>New input State</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -534,7 +561,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="lib_domain_view._View.html">_View</a>.<a href="lib_domain_view._View.html#mapOnState">mapOnState</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/7b85456/src/lib/domain/view.ts#L75">lib/domain/view.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/dd2171b/src/lib/domain/view.ts#L85">lib/domain/view.ts:85</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -546,6 +573,9 @@
 							<ul class="tsd-type-parameters">
 								<li>
 									<h4>Son</h4>
+									<div class="tsd-comment tsd-typography">
+										<p>New output State</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -587,7 +617,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="lib_domain_view._View.html">_View</a>.<a href="lib_domain_view._View.html#productOnState">productOnState</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/7b85456/src/lib/domain/view.ts#L94">lib/domain/view.ts:94</a></li>
+									<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/dd2171b/src/lib/domain/view.ts#L106">lib/domain/view.ts:106</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -599,6 +629,9 @@
 							<ul class="tsd-type-parameters">
 								<li>
 									<h4>Son</h4>
+									<div class="tsd-comment tsd-typography">
+										<p>New output State</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
