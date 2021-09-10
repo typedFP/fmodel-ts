@@ -100,7 +100,9 @@
 					<li>Event-sourced systems are storing the events in immutable storage by only appending.</li>
 				</ul>
 				<p><strong>Both types of systems can be designed by using only these two functions and three generic parameters</strong></p>
-				<p><code>Decider</code> is the most important datatype, but it is not the only one. There are others:</p>
+				<p><img src="https://github.com/fraktalio/fmodel-ts/raw/main/.assets/es-ss-system.png" alt="event sourced vs state stored"></p>
+				<p><code>Decider</code> is the most important datatype, but it is not the only one. Let&#39;s discuss all of them, and visualize how they fit the Onion architecture.
+				The arrows in the image are showing the direction of the dependency. Notice that all dependencies point inwards, and that Domain is not depending on anything.</p>
 				<p><img src="https://github.com/fraktalio/fmodel-ts/raw/main/.assets/onion.png" alt="onion architecture image"></p>
 				<a href="#decider" id="decider" style="color: inherit; text-decoration: none;">
 					<h2>Decider</h2>
