@@ -1,4 +1,4 @@
-<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>IStateStoredAggregate | @fraktalio/fmodel-ts</title><meta name="description" content="Documentation for @fraktalio/fmodel-ts"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="../assets/style.css"/><link rel="stylesheet" href="../assets/highlight.css"/><script async src="../assets/search.js" id="search-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os"</script><header class="tsd-page-toolbar">
+<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>IStateStoredLockingAggregate | @fraktalio/fmodel-ts</title><meta name="description" content="Documentation for @fraktalio/fmodel-ts"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="../assets/style.css"/><link rel="stylesheet" href="../assets/highlight.css"/><script async src="../assets/search.js" id="search-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os"</script><header class="tsd-page-toolbar">
 <div class="tsd-toolbar-contents container">
 <div class="table-cell" id="tsd-search" data-base="..">
 <div class="field"><label for="tsd-search-field" class="tsd-widget search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M15.7824 13.833L12.6666 10.7177C12.5259 10.5771 12.3353 10.499 12.1353 10.499H11.6259C12.4884 9.39596 13.001 8.00859 13.001 6.49937C13.001 2.90909 10.0914 0 6.50048 0C2.90959 0 0 2.90909 0 6.49937C0 10.0896 2.90959 12.9987 6.50048 12.9987C8.00996 12.9987 9.39756 12.4863 10.5008 11.6239V12.1332C10.5008 12.3332 10.5789 12.5238 10.7195 12.6644L13.8354 15.7797C14.1292 16.0734 14.6042 16.0734 14.8948 15.7797L15.7793 14.8954C16.0731 14.6017 16.0731 14.1267 15.7824 13.833ZM6.50048 10.499C4.29094 10.499 2.50018 8.71165 2.50018 6.49937C2.50018 4.29021 4.28781 2.49976 6.50048 2.49976C8.71001 2.49976 10.5008 4.28708 10.5008 6.49937C10.5008 8.70852 8.71314 10.499 6.50048 10.499Z" fill="var(--color-text)"></path></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div>
@@ -11,12 +11,12 @@
 <div class="tsd-page-title">
 <ul class="tsd-breadcrumb">
 <li><a href="../modules.html">@fraktalio/fmodel-ts</a></li>
-<li><a href="IStateStoredAggregate.html">IStateStoredAggregate</a></li></ul>
-<h1>Interface IStateStoredAggregate&lt;C, S, E&gt;</h1></div>
+<li><a href="IStateStoredLockingAggregate.html">IStateStoredLockingAggregate</a></li></ul>
+<h1>Interface IStateStoredLockingAggregate&lt;C, S, E, V&gt;</h1></div>
 <section class="tsd-panel tsd-comment">
-<div class="tsd-comment tsd-typography"><p>State stored aggregate interface is using/delegating a <code>decider</code> of type <code>IDecider</code>&lt;<code>C</code>, <code>S</code>, <code>E</code>&gt; to handle commands and produce new state.
-In order to handle the command, aggregate needs to fetch the current state via <code>StateRepository.fetchState</code> function first, and then delegate the command to the <code>decider</code> which can produce new state as a result.</p>
-<p>New state is then stored via <code>StateRepository.save</code> function.</p>
+<div class="tsd-comment tsd-typography"><p>State stored locking aggregate interface is using/delegating a <code>decider</code> of type <code>IDecider</code>&lt;<code>C</code>, <code>S</code>, <code>E</code>&gt; to handle commands and produce new state.
+In order to handle the command, aggregate needs to fetch the current state via <code>StateLockingRepository.fetchState</code> function first, and then delegate the command to the <code>decider</code> which can produce new state as a result.</p>
+<p>New state is then stored via <code>StateLockingRepository.save</code> function.</p>
 
 <h3>Author</h3><p>Иван Дугалић / Ivan Dugalic /</p>
 
@@ -35,26 +35,30 @@ In order to handle the command, aggregate needs to fetch the current state via <
 <li>
 <h4>E</h4>
 <div class="tsd-comment tsd-typography"><p>Events of type <code>E</code> that this aggregate can publish</p>
+</div></li>
+<li>
+<h4>V</h4>
+<div class="tsd-comment tsd-typography"><p>The Version of the stored State</p>
 </div></li></ul></section> 
 <section class="tsd-panel tsd-hierarchy">
 <h4>Hierarchy</h4>
 <ul class="tsd-hierarchy">
 <li><a href="../types/IDecider.html" class="tsd-signature-type" data-tsd-kind="Type alias">IDecider</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">C</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">E</span><span class="tsd-signature-symbol">&gt;</span></li>
-<li><a href="StateRepository.html" class="tsd-signature-type" data-tsd-kind="Interface">StateRepository</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">C</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">S</span><span class="tsd-signature-symbol">&gt;</span>
+<li><a href="StateLockingRepository.html" class="tsd-signature-type" data-tsd-kind="Interface">StateLockingRepository</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">C</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">V</span><span class="tsd-signature-symbol">&gt;</span>
 <section class="tsd-panel tsd-hierarchy">
 <h4>Hierarchy</h4>
 <ul class="tsd-hierarchy">
-<li><span class="target">IStateStoredAggregate</span>
+<li><span class="target">IStateStoredLockingAggregate</span>
 <section class="tsd-panel tsd-hierarchy">
 <h4>Hierarchy</h4>
 <ul class="tsd-hierarchy">
-<li><a href="IStateStoredOrchestratingAggregate.html" class="tsd-signature-type" data-tsd-kind="Interface">IStateStoredOrchestratingAggregate</a></li></ul></section></li></ul></section></li></ul></section>
+<li><a href="IStateStoredOrchestratingLockingAggregate.html" class="tsd-signature-type" data-tsd-kind="Interface">IStateStoredOrchestratingLockingAggregate</a></li></ul></section></li></ul></section></li></ul></section>
 <section class="tsd-panel">
 <h4>Implemented by</h4>
 <ul class="tsd-hierarchy">
-<li><a href="../classes/StateStoredAggregate.html" class="tsd-signature-type" data-tsd-kind="Class">StateStoredAggregate</a></li></ul></section><aside class="tsd-sources">
+<li><a href="../classes/StateStoredLockingAggregate.html" class="tsd-signature-type" data-tsd-kind="Class">StateStoredLockingAggregate</a></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/77a6635/src/lib/application/statestored-aggregate.ts#L33">lib/application/statestored-aggregate.ts:33</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/77a6635/src/lib/application/statestored-aggregate.ts#L52">lib/application/statestored-aggregate.ts:52</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -62,12 +66,12 @@ In order to handle the command, aggregate needs to fetch the current state via <
 <div class="tsd-accordion-details">
 <section class="tsd-index-section">
 <h3 class="tsd-index-heading">Properties</h3>
-<div class="tsd-index-list"><a href="IStateStoredAggregate.html#decide" class="tsd-index-link tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="#FF984D" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12" id="icon-1024-path"></rect><path d="M9.354 16V7.24H12.174C12.99 7.24 13.638 7.476 14.118 7.948C14.606 8.412 14.85 9.036 14.85 9.82C14.85 10.604 14.606 11.232 14.118 11.704C13.638 12.168 12.99 12.4 12.174 12.4H10.434V16H9.354ZM10.434 11.428H12.174C12.646 11.428 13.022 11.284 13.302 10.996C13.59 10.7 13.734 10.308 13.734 9.82C13.734 9.324 13.59 8.932 13.302 8.644C13.022 8.356 12.646 8.212 12.174 8.212H10.434V11.428Z" fill="var(--color-text)" id="icon-1024-text"></path></svg><span>decide</span></a>
-<a href="IStateStoredAggregate.html#evolve" class="tsd-index-link tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>evolve</span></a>
-<a href="IStateStoredAggregate.html#fetchState" class="tsd-index-link tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>fetch<wbr/>State</span></a>
-<a href="IStateStoredAggregate.html#handle" class="tsd-index-link tsd-kind-property tsd-parent-kind-interface"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>handle</span></a>
-<a href="IStateStoredAggregate.html#initialState" class="tsd-index-link tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>initial<wbr/>State</span></a>
-<a href="IStateStoredAggregate.html#save" class="tsd-index-link tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>save</span></a>
+<div class="tsd-index-list"><a href="IStateStoredLockingAggregate.html#decide" class="tsd-index-link tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="#FF984D" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12" id="icon-1024-path"></rect><path d="M9.354 16V7.24H12.174C12.99 7.24 13.638 7.476 14.118 7.948C14.606 8.412 14.85 9.036 14.85 9.82C14.85 10.604 14.606 11.232 14.118 11.704C13.638 12.168 12.99 12.4 12.174 12.4H10.434V16H9.354ZM10.434 11.428H12.174C12.646 11.428 13.022 11.284 13.302 10.996C13.59 10.7 13.734 10.308 13.734 9.82C13.734 9.324 13.59 8.932 13.302 8.644C13.022 8.356 12.646 8.212 12.174 8.212H10.434V11.428Z" fill="var(--color-text)" id="icon-1024-text"></path></svg><span>decide</span></a>
+<a href="IStateStoredLockingAggregate.html#evolve" class="tsd-index-link tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>evolve</span></a>
+<a href="IStateStoredLockingAggregate.html#fetchState" class="tsd-index-link tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>fetch<wbr/>State</span></a>
+<a href="IStateStoredLockingAggregate.html#handle" class="tsd-index-link tsd-kind-property tsd-parent-kind-interface"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>handle</span></a>
+<a href="IStateStoredLockingAggregate.html#initialState" class="tsd-index-link tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>initial<wbr/>State</span></a>
+<a href="IStateStoredLockingAggregate.html#save" class="tsd-index-link tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>save</span></a>
 </div></section></div></details></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Properties</h2>
@@ -115,17 +119,17 @@ In order to handle the command, aggregate needs to fetch the current state via <
 <li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/77a6635/src/lib/domain/decider.ts#L34">lib/domain/decider.ts:34</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a id="fetchState" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>fetch<wbr/>State</span><a href="#fetchState" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
-<div class="tsd-signature">fetch<wbr/>State<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>c<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">C</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span></div>
+<div class="tsd-signature">fetch<wbr/>State<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>c<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">C</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">readonly </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">V</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span></div>
 <div class="tsd-type-declaration">
 <h4>Type declaration</h4>
 <ul class="tsd-parameters">
 <li class="tsd-parameter-signature">
 <ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-interface">
-<li class="tsd-signature" id="__type-4.__type-5"><span class="tsd-signature-symbol">(</span>c<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">C</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">S</span><span class="tsd-signature-symbol">&gt;</span></li>
+<li class="tsd-signature" id="__type-4.__type-5"><span class="tsd-signature-symbol">(</span>c<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">C</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">readonly </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">V</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></li>
 <li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>Fetch state</p>
+<div class="tsd-comment tsd-typography"><p>Fetch state and version</p>
 
-<h3>Returns</h3><p>current state of type <code>S</code></p>
+<h3>Returns</h3><p>the pair of current State/[S] and current Version/[V]</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -134,28 +138,28 @@ In order to handle the command, aggregate needs to fetch the current state via <
 <h5>c: <span class="tsd-signature-type" data-tsd-kind="Type parameter">C</span></h5>
 <div class="tsd-comment tsd-typography"><p>Command of type <code>C</code></p>
 </div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">S</span><span class="tsd-signature-symbol">&gt;</span></h4></li></ul></li></ul></div><aside class="tsd-sources">
-<p>Inherited from <a href="StateRepository.html">StateRepository</a>.<a href="StateRepository.html#fetchState">fetchState</a></p>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">readonly </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">V</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></h4></li></ul></li></ul></div><aside class="tsd-sources">
+<p>Inherited from <a href="StateLockingRepository.html">StateLockingRepository</a>.<a href="StateLockingRepository.html#fetchState">fetchState</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/77a6635/src/lib/application/statestored-aggregate.ts#L315">lib/application/statestored-aggregate.ts:315</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/77a6635/src/lib/application/statestored-aggregate.ts#L342">lib/application/statestored-aggregate.ts:342</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"><a id="handle" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>handle</span><a href="#handle" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
-<div class="tsd-signature">handle<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>command<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">C</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span></div>
+<div class="tsd-signature">handle<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>command<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">C</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">readonly </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">V</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span></div>
 <div class="tsd-type-declaration">
 <h4>Type declaration</h4>
 <ul class="tsd-parameters">
 <li class="tsd-parameter-signature">
 <ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-interface">
-<li class="tsd-signature" id="__type-6.__type-7"><span class="tsd-signature-symbol">(</span>command<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">C</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">S</span><span class="tsd-signature-symbol">&gt;</span></li>
+<li class="tsd-signature" id="__type-6.__type-7"><span class="tsd-signature-symbol">(</span>command<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">C</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">readonly </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">V</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></li>
 <li class="tsd-description">
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
 <h5>command: <span class="tsd-signature-type" data-tsd-kind="Type parameter">C</span></h5></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">S</span><span class="tsd-signature-symbol">&gt;</span></h4></li></ul></li></ul></div><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">readonly </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">V</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></h4></li></ul></li></ul></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/77a6635/src/lib/application/statestored-aggregate.ts#L36">lib/application/statestored-aggregate.ts:36</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/77a6635/src/lib/application/statestored-aggregate.ts#L55">lib/application/statestored-aggregate.ts:55</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a id="initialState" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>initial<wbr/>State</span><a href="#initialState" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">initial<wbr/>State<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type" data-tsd-kind="Type parameter">S</span></div><aside class="tsd-sources">
@@ -164,17 +168,18 @@ In order to handle the command, aggregate needs to fetch the current state via <
 <li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/77a6635/src/lib/domain/decider.ts#L35">lib/domain/decider.ts:35</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a id="save" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>save</span><a href="#save" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
-<div class="tsd-signature">save<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>s<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span></div>
+<div class="tsd-signature">save<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>s<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">S</span>, v<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">V</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">readonly </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">V</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span></div>
 <div class="tsd-type-declaration">
 <h4>Type declaration</h4>
 <ul class="tsd-parameters">
 <li class="tsd-parameter-signature">
 <ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-interface">
-<li class="tsd-signature" id="__type-8.__type-9"><span class="tsd-signature-symbol">(</span>s<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">S</span><span class="tsd-signature-symbol">&gt;</span></li>
+<li class="tsd-signature" id="__type-8.__type-9"><span class="tsd-signature-symbol">(</span>s<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">S</span>, v<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">V</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">readonly </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">V</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Save state</p>
+<p>You can update/save the item/state, but only if the <code>version</code> number in the storage has not changed.</p>
 
-<h3>Returns</h3><p>newly saved State of type <code>S</code></p>
+<h3>Returns</h3><p>newly saved State of type [S, V]</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -182,11 +187,15 @@ In order to handle the command, aggregate needs to fetch the current state via <
 <li>
 <h5>s: <span class="tsd-signature-type" data-tsd-kind="Type parameter">S</span></h5>
 <div class="tsd-comment tsd-typography"><p>State of type <code>S</code></p>
+</div></li>
+<li>
+<h5>v: <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">V</span></h5>
+<div class="tsd-comment tsd-typography"><p>The current version of the state</p>
 </div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">S</span><span class="tsd-signature-symbol">&gt;</span></h4></li></ul></li></ul></div><aside class="tsd-sources">
-<p>Inherited from <a href="StateRepository.html">StateRepository</a>.<a href="StateRepository.html#save">save</a></p>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">readonly </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">V</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></h4></li></ul></li></ul></div><aside class="tsd-sources">
+<p>Inherited from <a href="StateLockingRepository.html">StateLockingRepository</a>.<a href="StateLockingRepository.html#save">save</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/77a6635/src/lib/application/statestored-aggregate.ts#L323">lib/application/statestored-aggregate.ts:323</a></li></ul></aside></section></section></div>
+<li>Defined in <a href="https://github.com/fraktalio/fmodel-ts/blob/77a6635/src/lib/application/statestored-aggregate.ts#L353">lib/application/statestored-aggregate.ts:353</a></li></ul></aside></section></section></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 <div class="tsd-navigation settings">
 <details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
@@ -210,14 +219,14 @@ In order to handle the command, aggregate needs to fetch the current state via <
 <ul></ul></li></ul></div></details></nav>
 <nav class="tsd-navigation secondary menu-sticky">
 <ul>
-<li class="current tsd-kind-interface"><a href="IStateStoredAggregate.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-interface)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6" id="icon-256-path"></rect><path d="M9.51 16V15.016H11.298V8.224H9.51V7.24H14.19V8.224H12.402V15.016H14.19V16H9.51Z" fill="var(--color-text)" id="icon-256-text"></path></svg><span>IState<wbr/>Stored<wbr/>Aggregate</span></a>
+<li class="current tsd-kind-interface"><a href="IStateStoredLockingAggregate.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-interface)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6" id="icon-256-path"></rect><path d="M9.51 16V15.016H11.298V8.224H9.51V7.24H14.19V8.224H12.402V15.016H14.19V16H9.51Z" fill="var(--color-text)" id="icon-256-text"></path></svg><span>IState<wbr/>Stored<wbr/>Locking<wbr/>Aggregate</span></a>
 <ul>
-<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="IStateStoredAggregate.html#decide" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>decide</a></li>
-<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="IStateStoredAggregate.html#evolve" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>evolve</a></li>
-<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="IStateStoredAggregate.html#fetchState" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>fetch<wbr/>State</a></li>
-<li class="tsd-kind-property tsd-parent-kind-interface"><a href="IStateStoredAggregate.html#handle" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>handle</a></li>
-<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="IStateStoredAggregate.html#initialState" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>initial<wbr/>State</a></li>
-<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="IStateStoredAggregate.html#save" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>save</a></li></ul></li></ul></nav></div></div>
+<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="IStateStoredLockingAggregate.html#decide" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>decide</a></li>
+<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="IStateStoredLockingAggregate.html#evolve" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>evolve</a></li>
+<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="IStateStoredLockingAggregate.html#fetchState" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>fetch<wbr/>State</a></li>
+<li class="tsd-kind-property tsd-parent-kind-interface"><a href="IStateStoredLockingAggregate.html#handle" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>handle</a></li>
+<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="IStateStoredLockingAggregate.html#initialState" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>initial<wbr/>State</a></li>
+<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="IStateStoredLockingAggregate.html#save" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>save</a></li></ul></li></ul></nav></div></div>
 <div class="container tsd-generator">
 <p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div>
 <div class="overlay"></div><script src="../assets/main.js"></script></body></html>
